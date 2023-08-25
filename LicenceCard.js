@@ -2,31 +2,33 @@ import { Image, Pressable, StyleSheet, Text, View } from 'react-native';
 
 
 
-const LicenceCard = ({ }) => {
+const LicenceCard = ({ name, image, flag }) => {
+  /*
   const province = {
     name: 'Alberta',
     image: require('./img_licence/alberta.jpg'),
     flag: <Text style={{textAlign: 'center',fontSize: 20,}}>🇨🇦</Text>,
     country: 'CA'
   };
+  */
   // 🇺🇸 🇨🇦
   return (
     <Pressable style={styles.usefulbox}>
       <View style={{paddingBottom:15, backgroundColor: '#2ff'}}>
         <Image
           style={{width:150, height:77}}
-          source={province.image}
+          source={image}
         />
       </View>
       <View style={{maxWidth: 150, flexWrap: 'wrap', flexDirection: 'row',}}>
         <View style={{flex: 1, flexDirection: 'row', 
         justifyContent: 'flex-end',paddingRight:10, alignItems:'center'}}>
-          {province.flag}
+          {flag}
         </View>
-        <Text style={styles.licenseText}>{province.name}</Text>
+        <Text style={styles.licenseText}>{name}</Text>
         <View style={{flex: 1, flexDirection: 'row', 
         justifyContent: 'flex-start',paddingLeft:10, alignItems:'center'}}>
-          {province.flag}
+          {flag}
         </View>
       </View>
       
@@ -45,7 +47,7 @@ const styles = StyleSheet.create({
   },
   licenseText: {
     color: '#000',
-    fontSize: 20,
+    fontSize: 19,
     maxWidth: 90,
     minWidth: 20,
     textAlign: 'center',

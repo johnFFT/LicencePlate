@@ -19,6 +19,7 @@ export default function App() {
         name={item.name}
         image={item.image}
         flag={item.flag}
+        onPress = {() => item.onPress()}
         //onPress={() => setSelectedId(item.id)}
         //backgroundColor={backgroundColor}
         //textColor={color}
@@ -52,7 +53,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#9F566D',
     alignItems: 'center',
     justifyContent: 'center',
   },

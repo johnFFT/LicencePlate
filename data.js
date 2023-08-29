@@ -1,5 +1,6 @@
 import { Text } from 'react-native';
 
+//const flagCA = () => {<Text style={{textAlign: 'center',fontSize: 20,}}>🇨🇦</Text>};
 
 const DATA = [
     {
@@ -28,8 +29,43 @@ const DATA = [
       flag: <Text style={{textAlign: 'center',fontSize: 20,}}>🇨🇦</Text>,
     },
     {
+      name: 'Northwest Territories',
+      image: require('./img_licence/northwest_territories.jpg'),
+      flag: <Text style={{textAlign: 'center',fontSize: 20,}}>🇨🇦</Text>,
+    },
+    {
+      name: 'Nova Scotia',
+      image: require('./img_licence/nova_scotia.jpg'),
+      flag: <Text style={{textAlign: 'center',fontSize: 20,}}>🇨🇦</Text>,
+    },
+    {
+      name: 'Nunavut',
+      image: require('./img_licence/nunavut.jpg'),
+      flag: <Text style={{textAlign: 'center',fontSize: 20,}}>🇨🇦</Text>,
+    },
+    {
       name: 'Ontario',
       image: require('./img_licence/ontario.jpg'),
+      flag: <Text style={{textAlign: 'center',fontSize: 20,}}>🇨🇦</Text>,
+    },
+    {
+      name: 'Prince Edward Island',
+      image: require('./img_licence/PEI.jpg'),
+      flag: <Text style={{textAlign: 'center',fontSize: 20,}}>🇨🇦</Text>,
+    },
+    {
+      name: 'Quebec',
+      image: require('./img_licence/quebec.png'),
+      flag: <Text style={{textAlign: 'center',fontSize: 20,}}>🇨🇦</Text>,
+    },
+    {
+      name: 'Saskatchewan',
+      image: require('./img_licence/saskatchewan.jpg'),
+      flag: <Text style={{textAlign: 'center',fontSize: 20,}}>🇨🇦</Text>,
+    },
+    {
+      name: 'Yukon',
+      image: require('./img_licence/yukon.jpg'),
       flag: <Text style={{textAlign: 'center',fontSize: 20,}}>🇨🇦</Text>,
     },
     {
@@ -38,5 +74,6 @@ const DATA = [
       flag: <Text style={{textAlign: 'center',fontSize: 20,}}>🇺🇸</Text>,
     }
   ];
+
 
 export default DATA;

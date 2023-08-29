@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Image, Pressable, StyleSheet, Text, View } from 'react-native';
 
 
@@ -12,9 +13,12 @@ const LicenceCard = ({ name, image, flag }) => {
   };
   */
   // 🇺🇸 🇨🇦
+
+  [seen, setSeen] = useState(false);
+
   return (
-    <Pressable style={styles.usefulbox}>
-      <View style={{paddingBottom:15, backgroundColor: '#2ff'}}>
+    <Pressable style={[styles.usefulbox, {backgroundColor: seen ? styles.usefulbox.selectedColor : styles.usefulbox.backgroundColor}]} onPress={() => {setSeen((prevState) => !prevState)}}>
+      <View style={{paddingBottom:15, backgroundColor: seen ? styles.usefulbox.selectedColor : styles.usefulbox.backgroundColor}}>
         <Image
           style={{width:150, height:77}}
           source={image}
@@ -41,7 +45,8 @@ const styles = StyleSheet.create({
   usefulbox: {
     width: 250,
     paddingVertical: 20,
-    backgroundColor: '#eee',
+    backgroundColor: '#A2AAAD',
+    selectedColor: '#2f7',
     alignItems: 'center',
     justifyContent: 'center',
   },

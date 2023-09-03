@@ -28,7 +28,7 @@ export default function App() {
       <LicenceCard
         name={item.name}
         image={item.image}
-        flag={item.flag}
+        country={item.country}
         onPress = {() => test2OnPress()}
         //onPress={() => setSelectedId(item.id)}
         //backgroundColor={backgroundColor}
@@ -46,7 +46,8 @@ export default function App() {
 
   return (
     <SafeAreaView style={styles.container}>
-    <LicenceCard name={'Berta'} image={require('./img_licence/alberta.jpg')} flag={<Text style={{textAlign: 'center',fontSize: 20,}}>🇨🇦</Text>}/>
+    <LicenceCard name={'Berta'} image={require('./img_licence/alberta.jpg')} country={'CA'}/>
+    <LicenceCard name={'Murica'} image={require('./img_licence/ontario.jpg')} country={'US'}/>
     </SafeAreaView>
   );
 }

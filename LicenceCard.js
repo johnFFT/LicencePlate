@@ -1,18 +1,32 @@
-import { useState } from 'react';
+import { useState, Component } from 'react';
 import { Image, Pressable, StyleSheet, Text, View, Modal } from 'react-native';
 import moment from 'moment';
 
 
-const LicenceCard = ({ name, image, flag }) => {
-  /*
-  const province = {
-    name: 'Alberta',
-    image: require('./img_licence/alberta.jpg'),
-    flag: <Text style={{textAlign: 'center',fontSize: 20,}}>🇨🇦</Text>,
-    country: 'CA'
-  };
-  */
-  // 🇺🇸 🇨🇦
+class LCard extends Component {
+constructor(props){
+  super(props);
+  this.state = {};
+}
+
+}
+
+
+const getFlagJSX = (countryStr) => {
+  const styles = {textAlign: 'center',fontSize: 20};
+  if (countryStr === 'CA'){
+    return (
+      <Text style={styles}>🇨🇦</Text>
+    )
+  } else if (countryStr == 'US'){
+    return (
+      <Text style={styles}>🇺🇸</Text>
+    )
+  }
+}
+
+
+const LicenceCard = ({ name, image, country }) => {
 
   [seen, setSeen] = useState(false);
   [eTime, setETime] = useState('');
@@ -41,7 +55,7 @@ const LicenceCard = ({ name, image, flag }) => {
           }}>
           <View style={{backgroundColor:'#446683',marginVertical: 50, marginHorizontal: 10, width : 300, height : 400}}>
             <Text>{eTime}</Text>
-            <Pressable onPress={() => {setModalSee(false)}}><Text style={{margin:10}}>Close this</Text></Pressable>
+            <Pressable style={{position: 'absolute', flex : 1, bottom: 10, right: 10, backgroundColor: '#20d467'}} onPress={() => {setModalSee(false)}}><Text style={{margin:10}}>Close this</Text></Pressable>
           </View>
         </View>
       </Modal>
@@ -55,12 +69,12 @@ const LicenceCard = ({ name, image, flag }) => {
         <View style={{maxWidth: 150, flexWrap: 'wrap', flexDirection: 'row',}}>
           <View style={{flex: 1, flexDirection: 'row', 
           justifyContent: 'flex-end',paddingRight:10, alignItems:'center'}}>
-            {flag}
+            {getFlagJSX(country)}
           </View>
           <Text style={styles.licenseText}>{name}</Text>
           <View style={{flex: 1, flexDirection: 'row', 
           justifyContent: 'flex-start',paddingLeft:10, alignItems:'center'}}>
-            {flag}
+            {getFlagJSX(country)}
           </View>
         </View>
       </Pressable>

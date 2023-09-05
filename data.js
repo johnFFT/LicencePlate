@@ -66,8 +66,53 @@ const DATA = [
       country: 'CA',
     },
     {
+      name: 'Alaska',
+      image: require('./img_licence/america/alaska.jpg'),
+      country: 'US',
+    },
+    {
+      name: 'California',
+      image: require('./img_licence/america/california.png'),
+      country: 'US',
+    },
+    {
       name: 'Colorado',
-      image: require('./img_licence/saskatchewan.jpg'),
+      image: require('./img_licence/america/colorado.jpg'),
+      country: 'US',
+    },
+    {
+      name: 'Connecticut',
+      image: require('./img_licence/america/connecticut.jpg'),
+      country: 'US',
+    },
+    {
+      name: 'District of Columbia',
+      image: require('./img_licence/america/DC.jpg'),
+      country: 'US',
+    },
+    {
+      name: 'Delaware',
+      image: require('./img_licence/america/delaware.jpg'),
+      country: 'US',
+    },
+    {
+      name: 'Floria',
+      image: require('./img_licence/america/florida.jpg'),
+      country: 'US',
+    },
+    {
+      name: 'Georgia',
+      image: require('./img_licence/america/georgia.jpg'),
+      country: 'US',
+    },
+    {
+      name: 'Hawaii',
+      image: require('./img_licence/america/hawaii.jpg'),
+      country: 'US',
+    },
+    {
+      name: 'Illinois',
+      image: require('./img_licence/america/illinois.png'),
       country: 'US',
     }
   ];

@@ -30,8 +30,8 @@ const LicenceCard = ({ name, image, country, eventList, setEventList, setModalSe
 
   const testOnPress = () => {
     setEventList((arr) => [...arr, {name : name, eventDate : moment().format('lll')}]);
-    const arr2 = eventList.filter(item => item.name === name).map(item => item.eventDate);
-    console.log(name+arr2);
+    //const arr2 = eventList.filter(item => item.name === name).map(item => item.eventDate);
+    //console.log(name+arr2);
   }
 
   const longPressFun = () => {
@@ -57,6 +57,9 @@ const LicenceCard = ({ name, image, country, eventList, setEventList, setModalSe
         justifyContent: 'flex-start',paddingLeft:10, alignItems:'center'}}>
           {getFlagJSX(country)}
         </View>
+      </View>
+      <View style={{position: 'absolute', flex : 1, bottom: 10, right: 10, backgroundColor: '#20d467'}}>
+        <Text>{eventList.filter(item => item.name === name).length}</Text>
       </View>
     </Pressable>
   )

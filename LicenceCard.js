@@ -26,21 +26,21 @@ const getFlagJSX = (countryStr) => {
 }
 
 
-const LicenceCard = ({ name, image, country }) => {
+const LicenceCard = ({ name, image, country, eventList, setEventList}) => {
 
   [seen, setSeen] = useState(false);
-  [eTime, setETime] = useState('');
   [modalSee, setModalSee] = useState(false);
 
   const testOnPress = () => {
     setSeen((prevState) => !prevState);
+    setEventList((arr) => [...arr, {name : name, eventDate : moment().format('lll')}]);
+    const arr2 = eventList.filter(item => item.name === name).map(item => item.eventDate);
+    console.log(name+arr2);
   }
 
-  // onPress={() => {setSeen((prevState) => !prevState)}}>
 
   const longPressFun = () => {
     setModalSee((seeModal) => !seeModal);
-    setETime(moment().format('lll'));
   }
 
   return (
@@ -54,7 +54,7 @@ const LicenceCard = ({ name, image, country }) => {
           backgroundColor: '#000000a0',
           }}>
           <View style={{backgroundColor:'#446683',marginVertical: 50, marginHorizontal: 10, width : 300, height : 400}}>
-            <Text>{eTime}</Text>
+            <Text>{name} - {eventList.filter(item => item.name === name).map(item => item.eventDate)}</Text>
             <Pressable style={{position: 'absolute', flex : 1, bottom: 10, right: 10, backgroundColor: '#20d467'}} onPress={() => {setModalSee(false)}}><Text style={{margin:10}}>Close this</Text></Pressable>
           </View>
         </View>

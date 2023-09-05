@@ -5,32 +5,43 @@ import { SafeAreaView, StyleSheet, View, ScrollView, FlatList, Text } from 'reac
 import { useState } from 'react';
 
 
+/*
+const DATA = [
+  {
+    name : 'Berta',
+    image : require('./img_licence/alberta.jpg'),
+    country : 'CA'
+  },
+  {
+    name : 'Murica',
+    image : require('./img_licence/ontario.jpg'),
+    country : 'US',
+  },
+  {
+    name : 'Yukon',
+    image : require('./img_licence/yukon.jpg'),
+    country : 'CA',
+  }
+];
+*/
 
 export default function App() {
 
-  const [selectedId, setSelectedId] = useState('');
+  const [eventList, setEventList] = useState([{name : 'Nova Scotia', eventDate : 'Right now'}]);
 
   const renderItem = ({item}) => {
     //const backgroundColor = item.id === selectedId ? '#6e3b6e' : '#f9c2ff';
     //const color = item.id === selectedId ? 'white' : 'black';
 
     //const [seen,setSeen] = useState(false);
-    
-
-    const test2OnPress = () => {
-      console.log('yupee!');
-      //setSeen((prevState) => !prevState);
-      setSelectedId(item.name);
-      item.onPress();
-    };
 
     return (
       <LicenceCard
         name={item.name}
         image={item.image}
         country={item.country}
-        onPress = {() => test2OnPress()}
-        //onPress={() => setSelectedId(item.id)}
+        eventList={eventList}
+        setEventList={setEventList}
         //backgroundColor={backgroundColor}
         //textColor={color}
       />
@@ -46,8 +57,12 @@ export default function App() {
 
   return (
     <SafeAreaView style={styles.container}>
-    <LicenceCard name={'Berta'} image={require('./img_licence/alberta.jpg')} country={'CA'}/>
-    <LicenceCard name={'Murica'} image={require('./img_licence/ontario.jpg')} country={'US'}/>
+    <FlatList 
+      data={DATA}
+      renderItem={renderItem}
+      //keyExtractor={item => item.id}
+      extraData={eventList}
+    />
     </SafeAreaView>
   );
 }
@@ -59,6 +74,12 @@ renderItem={renderItem}
 //keyExtractor={item => item.id}
 extraData={selectedId}
 />
+
+
+
+    <LicenceCard name={'Berta'} image={require('./img_licence/alberta.jpg')} country={'CA'} eventList={[]}/>
+    <LicenceCard name={'Murica'} image={require('./img_licence/ontario.jpg')} country={'US'} eventList={[]}/>
+    <LicenceCard name={'Yukon'} image={require('./img_licence/yukon.jpg')} country={'CA'} eventList={[]}/>
 */
 
 

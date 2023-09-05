@@ -3,38 +3,17 @@ import LicenceCard from './LicenceCard';
 import DATA from './data';
 import { SafeAreaView, StyleSheet, View, ScrollView, FlatList, Text } from 'react-native';
 import { useState } from 'react';
+import LicenceModal from './LicenceModal';
 
 
-/*
-const DATA = [
-  {
-    name : 'Berta',
-    image : require('./img_licence/alberta.jpg'),
-    country : 'CA'
-  },
-  {
-    name : 'Murica',
-    image : require('./img_licence/ontario.jpg'),
-    country : 'US',
-  },
-  {
-    name : 'Yukon',
-    image : require('./img_licence/yukon.jpg'),
-    country : 'CA',
-  }
-];
-*/
 
 export default function App() {
 
-  const [eventList, setEventList] = useState([{name : 'Nova Scotia', eventDate : 'Right now'}]);
+  const [eventList, setEventList] = useState([]);
+  const [modalSee, setModalSee] = useState(false);
+  const [itemSeen, setItemSeen] = useState('');
 
   const renderItem = ({item}) => {
-    //const backgroundColor = item.id === selectedId ? '#6e3b6e' : '#f9c2ff';
-    //const color = item.id === selectedId ? 'white' : 'black';
-
-    //const [seen,setSeen] = useState(false);
-
     return (
       <LicenceCard
         name={item.name}
@@ -42,13 +21,10 @@ export default function App() {
         country={item.country}
         eventList={eventList}
         setEventList={setEventList}
-        //backgroundColor={backgroundColor}
-        //textColor={color}
+        setModalSee={setModalSee}
+        setItemSeen={setItemSeen}
       />
     );
-
-
-
   };
 
 
@@ -57,30 +33,25 @@ export default function App() {
 
   return (
     <SafeAreaView style={styles.container}>
-    <FlatList 
-      data={DATA}
-      renderItem={renderItem}
-      //keyExtractor={item => item.id}
-      extraData={eventList}
-    />
+      <View>
+        <LicenceModal
+          modalSee={modalSee}
+          setModalSee={setModalSee}
+          name={itemSeen}
+          eventList={eventList}
+        />
+        <FlatList 
+          data={DATA}
+          renderItem={renderItem}
+          keyExtractor={item => item.name}
+          extraData={eventList}
+        />
+      </View>
     </SafeAreaView>
   );
 }
 
-/*
-<FlatList 
-data={DATA}
-renderItem={renderItem}
-//keyExtractor={item => item.id}
-extraData={selectedId}
-/>
 
-
-
-    <LicenceCard name={'Berta'} image={require('./img_licence/alberta.jpg')} country={'CA'} eventList={[]}/>
-    <LicenceCard name={'Murica'} image={require('./img_licence/ontario.jpg')} country={'US'} eventList={[]}/>
-    <LicenceCard name={'Yukon'} image={require('./img_licence/yukon.jpg')} country={'CA'} eventList={[]}/>
-*/
 
 
 
@@ -98,10 +69,3 @@ const styles = StyleSheet.create({
 });
 
 
-/*
-
-    <View style={styles.container}>
-      <LicenceCard/>
-      <StatusBar style="auto" />
-    </View>
-*/

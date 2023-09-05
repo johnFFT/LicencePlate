@@ -1,6 +1,3 @@
-import { Text } from 'react-native';
-
-//const flagCA = () => {<Text style={{textAlign: 'center',fontSize: 20,}}>🇨🇦</Text>};
 
 const DATA = [
     {
